@@ -1,0 +1,290 @@
+import telebot
+from telebot import types
+import random
+from random import choice
+
+bot = telebot.TeleBot('6261930695:AAEeU9PkHdQ93njvTCj7iDHgbxE1eR3ILIQ')
+@bot.message_handler(commands=["start"])
+def start(message):
+
+    markup = types.ReplyKeyboardMarkup(resize_keyboard= True)
+    btn1 = types.KeyboardButton('Бар🍺')
+    btn2 = types.KeyboardButton('Кухня🥗')
+    markup.add(btn1, btn2)
+    bot.send_message(message.from_user.id, "Выберите бар либо кухню", reply_markup= markup)
+
+@bot.message_handler(content_types=["text"])
+def get_text_message(message):
+
+    if message.text == 'Кухня🥗':
+        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        bt1 = types.KeyboardButton('Старты')
+        bt2 = types.KeyboardButton('Raw')
+        bt3 = types.KeyboardButton('Салаты')
+        bt4 = types.KeyboardButton('Супы')
+        bt5 = types.KeyboardButton('Паста FRESCA')
+        bt6 = types.KeyboardButton('Основные')
+        bt7 = types.KeyboardButton('Пицца')
+        bt8 = types.KeyboardButton('Роллы')
+        bt9 = types.KeyboardButton('Суши')
+        bt10 = types.KeyboardButton('Десерты')
+        bt11= types.KeyboardButton('Вернуться назад')
+        markup.add(bt1, bt2, bt3, bt4, bt5, bt6, bt7, bt8, bt9, bt10, bt11)
+        bot.send_message(message.from_user.id, "Выберите одну из позиций", reply_markup=markup)
+
+    elif message.text == 'Вернуться назад':
+        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        btn1 = types.KeyboardButton('Бар🍺')
+        btn2 = types.KeyboardButton('Кухня🥗')
+        markup.add(btn1, btn2)
+        bot.send_message(message.from_user.id, "Выберите бар либо кухню", reply_markup=markup)
+
+    elif message.text == 'Пицца':
+        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        bt1 = types.KeyboardButton('Маргарита со страчателлой')
+        bt2 = types.KeyboardButton('Пеперони')
+        bt3 = types.KeyboardButton('4 сыра')
+        bt4 = types.KeyboardButton('Груша с горгонзолой')
+        bt5 = types.KeyboardButton('Лосось со страчателлой')
+        bt6 = types.KeyboardButton('Ветчина со страчателлой')
+        bt7 = types.KeyboardButton('Ветчина с грибами')
+        bt8 = types.KeyboardButton('Мясная')
+        bt9 = types.KeyboardButton('Вернуться назад')
+        markup.add(bt1, bt2, bt3, bt4, bt5, bt6, bt7, bt8, bt9)
+        bot.send_message(message.from_user.id, "Выберите одну из пицц", reply_markup=markup)
+    elif message.text == 'Маргарита со страчателлой':
+        bot.send_message(message.from_user.id, "Тесто для пиццы")
+        bot.send_message(message.from_user.id, "Соус томатный")
+        bot.send_message(message.from_user.id, "Сыр страчателла")
+        bot.send_message(message.from_user.id, "Соус песто")
+        bot.send_message(message.from_user.id, "Базилик")
+        bot.send_message(message.from_user.id, "Соус томатный для пиццы")
+
+    elif message.text == 'Пеперони':
+        bot.send_message(message.from_user.id, "Тесто для пиццы")
+        bot.send_message(message.from_user.id, "Соус томатный")
+        bot.send_message(message.from_user.id, "Сыр моцарелла")
+        bot.send_message(message.from_user.id, "Колбаски пеперони")
+        bot.send_message(message.from_user.id, "Перец халапенью")
+        bot.send_message(message.from_user.id, "Соус томатный для пиццы")
+
+    elif message.text == '4 сыра':
+        bot.send_message(message.from_user.id, "Тесто для пиццы")
+        bot.send_message(message.from_user.id, "Соус сливочный")
+        bot.send_message(message.from_user.id, "Сыр моцарелла")
+        bot.send_message(message.from_user.id, "Сыр горганзола")
+        bot.send_message(message.from_user.id, "Сыр пармезан")
+        bot.send_message(message.from_user.id, "Сыр чеддер")
+        bot.send_message(message.from_user.id, "Соус сливочный для пиццы")
+
+    elif message.text == 'Груша с горгонзолой':
+        bot.send_message(message.from_user.id, "Тесто для пиццы")
+        bot.send_message(message.from_user.id, "Соус сливочный")
+        bot.send_message(message.from_user.id, "Сыр моцарелла")
+        bot.send_message(message.from_user.id, "Сыр горгонзола")
+        bot.send_message(message.from_user.id, "Груша свежая")
+        bot.send_message(message.from_user.id, "Мед")
+        bot.send_message(message.from_user.id, "Грецкий орех")
+        bot.send_message(message.from_user.id, "Соус сливочный к пицце")
+
+    elif message.text == 'Лосось со страчателлой':
+        bot.send_message(message.from_user.id, "Тесто для пиццы")
+        bot.send_message(message.from_user.id, "Соус сливочный")
+        bot.send_message(message.from_user.id, "Сыр моцарелла")
+        bot.send_message(message.from_user.id, "Лосось")
+        bot.send_message(message.from_user.id, "Сыр страчателла")
+        bot.send_message(message.from_user.id, "Сыр пармезан")
+        bot.send_message(message.from_user.id, "Шпинат")
+
+    elif message.text == 'Ветчина со страчателлой':
+        bot.send_message(message.from_user.id, "Тесто для пиццы")
+        bot.send_message(message.from_user.id, "Соус сливочный")
+        bot.send_message(message.from_user.id, "Сыр моцарелла")
+        bot.send_message(message.from_user.id, "Ветчина из свинины")
+        bot.send_message(message.from_user.id, "Сыр страчателла")
+        bot.send_message(message.from_user.id, "Масло трюфельное")
+        bot.send_message(message.from_user.id, "Перец черный молотый")
+        bot.send_message(message.from_user.id, "Соус сливочный к пицце")
+
+    elif message.text == 'Ветчина с грибами':
+        bot.send_message(message.from_user.id, "Тесто для пиццы")
+        bot.send_message(message.from_user.id, "Соус томатный")
+        bot.send_message(message.from_user.id, "Сыр моцарелла")
+        bot.send_message(message.from_user.id, "Ветчина из свинины")
+        bot.send_message(message.from_user.id, "Шампиньоны")
+        bot.send_message(message.from_user.id, "Песто")
+        bot.send_message(message.from_user.id, "Руккола")
+        bot.send_message(message.from_user.id, "Соус томатный к пицце")
+
+    elif message.text == 'Мясная':
+        bot.send_message(message.from_user.id, "Тесто для пиццы")
+        bot.send_message(message.from_user.id, "Соус томатный")
+        bot.send_message(message.from_user.id, "Сыр моцарелла")
+        bot.send_message(message.from_user.id, "Колбаса пеперони")
+        bot.send_message(message.from_user.id, "Ветчина из свинины")
+        bot.send_message(message.from_user.id, "Бекон")
+        bot.send_message(message.from_user.id, "Лук красный маринованный")
+        bot.send_message(message.from_user.id, "Соус томатный к пицце")
+
+    elif message.text == 'Роллы':
+        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        bt1 = types.KeyboardButton('Салмон спешел')
+        bt2 = types.KeyboardButton('Салмон с миндальным муссом')
+        bt3 = types.KeyboardButton('Карамельный салмон')
+        bt4 = types.KeyboardButton('Туна и красная икра')
+        bt5 = types.KeyboardButton('Угорь и манго')
+        bt6 = types.KeyboardButton('Королевская креветка')
+        bt7 = types.KeyboardButton('Вернуться назад')
+        markup.add(bt1, bt2, bt3, bt4, bt5, bt6, bt7)
+        bot.send_message(message.from_user.id, "Выберите одну из позиций", reply_markup=markup)
+
+    elif message.text == 'Салмон спешел':
+        bot.send_message(message.from_user.id, """
+        Рис
+        Нори
+        Авокадо
+        Соус фирменный
+        Соус унаги
+        Руккола
+        Дайкон
+        Имбирь
+        Васаби
+        Соевый соус
+        Лосось
+        Икра масаго
+        Креветка в кляре""")
+    elif message.text == 'Салмон с миндальным муссом':
+        bot.send_message(message.from_user.id, """
+        Рис
+        Нори
+        Авокадо
+        Сырный замес
+        Кешью
+        Васаби
+        Имбирь
+        Соевый соус
+        Лосось
+        Миндальный мусс""")
+
+    elif message.text == 'Карамельный салмон':
+        bot.send_message(message.from_user.id, """
+        Рис
+        Нори
+        Сыр креметте
+        Авокадо
+        Сахар
+        Соус унаги
+        Имбирь
+        Васаби
+        Соевый соус
+        Микрозелень
+        Лосось""")
+
+    elif message.text == 'Туна и красная икра':
+        bot.send_message(message.from_user.id, """
+        Нори
+        Икра масаго
+        Сыр Креметте
+        Тунец
+        Спайси
+        Имбирь
+        Рис
+        Соевый
+        Микрозелень
+        Икра лососевая
+        Васаби
+        Лосось филе""")
+
+    elif message.text == 'Угорь и манго':
+        bot.send_message(message.from_user.id, """
+        Рис
+        Нори
+        Креметте
+        Авокадо
+        Омлет томаго
+        Угорь
+        Манго
+        Соус манго
+        Чипсы васаби
+        Микрозелень
+        Соевый соус
+        Имбирь
+        Васаби""")
+
+    elif message.text == 'Королевская креветка':
+        bot.send_message(message.from_user.id, """
+        Нори
+        Креветка жар
+        Угорь
+        Авокадо
+        Спайси соус
+        Икра масаго
+        Имбирь
+        Васаби
+        Рис
+        Соевый соус""")
+
+    elif message.text == 'Суши':
+        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        bt1 = types.KeyboardButton('Салмон')
+        bt2 = types.KeyboardButton('Салмон опаленный')
+        bt3 = types.KeyboardButton('Туна')
+        bt4 = types.KeyboardButton('Креветка')
+        bt5 = types.KeyboardButton('Вернуться назад')
+        markup.add(bt1, bt2, bt3, bt4, bt5)
+        bot.send_message(message.from_user.id, "Выберите одну из позиций", reply_markup=markup)
+
+    elif message.text == 'Салмон':
+        bot.send_message(message.from_user.id, """
+        Лосось
+        Унаги
+        Рис
+        Кунжут""")
+    elif message.text == 'Салмон опаленный':
+        bot.send_message(message.from_user.id, """
+        Лосось опаленный
+        Рис
+        Унаги
+        Кунжут""")
+
+    elif message.text == 'Туна':
+        bot.send_message(message.from_user.id, """
+        Рис
+        Тунец
+        Кунжут
+        Микрозелень""")
+
+    elif message.text == 'Креветка':
+        bot.send_message(message.from_user.id, """
+        Рис
+        Креветка
+        Микрозелень""")
+
+    elif message.text == 'Паста FRESCA':
+        markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
+        bt1 = types.KeyboardButton('Классическая карбонара на пармезане')
+        bt2 = types.KeyboardButton('Аррабьята со страчателлой')
+        bt3 = types.KeyboardButton('Домашняя песто со страчателлой')
+        bt4 = types.KeyboardButton('Паста с белыми грибами и ципленком')
+        bt5 = types.KeyboardButton('Паста с креветками в томатно сливочном')
+        bt6 = types.KeyboardButton('Паста с тар-таром из креветок и цукини')
+        bt7 = types.KeyboardButton('Вернуться назад')
+        markup.add(bt1, bt2, bt3, bt4, bt5, bt6, bt7)
+        bot.send_message(message.from_user.id, "Выберите одну из позиций", reply_markup=markup)
+
+    elif message.text == 'Классическая карбонара на пармезане':
+        bot.send_message(message.from_user.id, """
+        """)
+
+    elif message.text == 'Аррабьята со страчателлой':
+
+    elif message.text == 'Домашняя песто со страчателлой':
+
+    elif message.text == 'Паста с белыми грибами и ципленком':
+
+    elif message.text == 'Паста с креветками в томатно сливочном':
+
+    elif message.text == 'Паста с тар-таром из креветок и цукини':
+
+
+bot.polling(none_stop=True, interval=0)
